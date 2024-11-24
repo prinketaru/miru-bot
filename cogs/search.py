@@ -35,7 +35,7 @@ class Search(commands.Cog):
 
             # create an embed for the anime
             embed = discord.Embed(
-                title=f'{result['title']} ({result['title_japanese']})',
+                title=f'{result['title']} ({result['title_english']})',
                 description=result['synopsis'],
                 color=discord.Color.nitro_pink(),
                 url=result['url']
@@ -96,7 +96,7 @@ class Search(commands.Cog):
 
             # create an embed for the manga
             embed = discord.Embed(
-                title=f'{result['title']} ({result['title_japanese']})',
+                title=f'{result['title']} ({result['title_english']})',
                 description=result['synopsis'],
                 color=discord.Color.green(),
                 url=result['url']
