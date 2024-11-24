@@ -42,7 +42,6 @@ class Search(commands.Cog):
             )
 
             # add fields to the embed
-            add_field_safe(embed, 'Background', result['background'], inline=False)
             add_field_safe(embed, 'Type', result['type'], inline=True)
             add_field_safe(embed, 'Episodes', result['episodes'], inline=True)
             add_field_safe(embed, 'Score', result['score'], inline=True)
@@ -58,8 +57,8 @@ class Search(commands.Cog):
 
             # handle aired dates
             aired = result['aired']
-            add_field_safe(embed, 'Start Date', f'<t:{int(datetime.fromisoformat(aired["from"].replace("Z", "+00:00")).timestamp())}:F>', inline=True)
-            add_field_safe(embed, 'End Date', f'<t:{int(datetime.fromisoformat(aired["to"].replace("Z", "+00:00")).timestamp())}:F>', inline=True)
+            add_field_safe(embed, 'Start Date', f'<t:{int(datetime.fromisoformat(aired['from'].replace("Z", "+00:00")).timestamp())}:F>' if aired['from'] else 'N/A', inline=True)
+            add_field_safe(embed, 'End Date', f'<t:{int(datetime.fromisoformat(aired['to'].replace("Z", "+00:00")).timestamp())}:F>' if aired['to'] else 'N/A', inline=True)
 
             # set thumbnail and author
             embed.set_thumbnail(url=result['images']['jpg']['image_url'])
@@ -104,7 +103,6 @@ class Search(commands.Cog):
             )
 
             # add fields to the embed
-            add_field_safe(embed, 'Background', result['background'], inline=False)
             add_field_safe(embed, 'Type', result['type'], inline=True)
             add_field_safe(embed, 'Volumes', result['volumes'], inline=True)
             add_field_safe(embed, 'Score', result['score'], inline=True)
