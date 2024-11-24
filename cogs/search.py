@@ -51,15 +51,15 @@ class Search(commands.Cog):
 
             # handle demographics and genres
             demographics = result['demographics']
-            add_field_safe(embed, 'Demographics', ', '.join([f"[{demo['name']}]({demo['url']})" for demo in demographics]) if demographics else 'N/A', inline=True)
+            add_field_safe(embed, 'Demographics', ', '.join([f"[{demo['name']}]({demo['url']})" for demo in demographics]), inline=True)
 
             genres = result['genres']
-            add_field_safe(embed, 'Genres', ', '.join([f"[{genre['name']}]({genre['url']})" for genre in genres]) if genres else 'N/A', inline=True)
+            add_field_safe(embed, 'Genres', ', '.join([f"[{genre['name']}]({genre['url']})" for genre in genres]), inline=True)
 
             # handle aired dates
             aired = result['aired']
-            add_field_safe(embed, 'Start Date', f'<t:{int(datetime.fromisoformat(aired["from"].replace("Z", "+00:00")).timestamp())}:F>' if aired['from'] else 'N/A', inline=True)
-            add_field_safe(embed, 'End Date', f'<t:{int(datetime.fromisoformat(aired["to"].replace("Z", "+00:00")).timestamp())}:F>' if aired['to'] else 'N/A', inline=True)
+            add_field_safe(embed, 'Start Date', f'<t:{int(datetime.fromisoformat(aired["from"].replace("Z", "+00:00")).timestamp())}:F>', inline=True)
+            add_field_safe(embed, 'End Date', f'<t:{int(datetime.fromisoformat(aired["to"].replace("Z", "+00:00")).timestamp())}:F>', inline=True)
 
             # set thumbnail and author
             embed.set_thumbnail(url=result['images']['jpg']['image_url'])
