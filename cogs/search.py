@@ -35,7 +35,7 @@ class Search(commands.Cog):
 
             # create an embed for the anime
             embed = discord.Embed(
-                title=f'{result['title']} ({result['title_english']})',
+                title=f"{result['title']} ({result['title_english']})",
                 description=result['synopsis'],
                 color=discord.Color.nitro_pink(),
                 url=result['url']
@@ -57,8 +57,8 @@ class Search(commands.Cog):
 
             # handle aired dates
             aired = result['aired']
-            add_field_safe(embed, 'Start Date', f'<t:{int(datetime.fromisoformat(aired['from'].replace("Z", "+00:00")).timestamp())}:F>' if aired['from'] else 'N/A', inline=True)
-            add_field_safe(embed, 'End Date', f'<t:{int(datetime.fromisoformat(aired['to'].replace("Z", "+00:00")).timestamp())}:F>' if aired['to'] else 'N/A', inline=True)
+            add_field_safe(embed, 'Start Date', f"<t:{int(datetime.fromisoformat(aired['from'].replace('Z', '+00:00')).timestamp())}:F>" if aired['from'] else 'N/A', inline=True)
+            add_field_safe(embed, 'End Date', f"<t:{int(datetime.fromisoformat(aired['to'].replace('Z', '+00:00')).timestamp())}:F>" if aired['to'] else 'N/A', inline=True)
 
             # set thumbnail and author
             embed.set_thumbnail(url=result['images']['jpg']['image_url'])
@@ -96,7 +96,7 @@ class Search(commands.Cog):
 
             # create an embed for the manga
             embed = discord.Embed(
-                title=f'{result['title']} ({result['title_english']})',
+                title=f"{result['title']} ({result['title_english']})",
                 description=result['synopsis'],
                 color=discord.Color.green(),
                 url=result['url']
@@ -118,8 +118,8 @@ class Search(commands.Cog):
 
             # handle published dates
             published = result['published']
-            add_field_safe(embed, 'Start Date', f'<t:{int(datetime.fromisoformat(published["from"].replace("Z", "+00:00")).timestamp())}:F>' if published['from'] else 'N/A', inline=True)
-            add_field_safe(embed, 'End Date', f'<t:{int(datetime.fromisoformat(published["to"].replace("Z", "+00:00")).timestamp())}:F>' if published['to'] else 'N/A', inline=True)
+            add_field_safe(embed, 'Start Date', f"<t:{int(datetime.fromisoformat(published['from'].replace('Z', '+00:00')).timestamp())}:F>" if published['from'] else 'N/A', inline=True)
+            add_field_safe(embed, 'End Date', f"<t:{int(datetime.fromisoformat(published['to'].replace('Z', '+00:00')).timestamp())}:F>" if published['to'] else 'N/A', inline=True)
 
             # set thumbnail and author
             embed.set_thumbnail(url=result['images']['jpg']['image_url'] if result['images']['jpg'] else 'https://www.wikidata.org/wiki/Q4044680#/media/File:MyAnimeList_Logo.png')
@@ -157,7 +157,7 @@ class Search(commands.Cog):
 
             # create an embed for the character
             embed = discord.Embed(
-                title=f'{result['name']} ({result['name_kanji']})',
+                title=f"{result['name']} ({result['name_kanji']})",
                 description=result['about'],
                 color=discord.Color.greyple(),
                 url=result['url']
