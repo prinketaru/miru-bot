@@ -15,7 +15,8 @@ async def on_ready():
 # load cogs
 cogs_list = [
     'utility',
-    'search'
+    'search',
+    'interactions',
 ]
 
 for cog in cogs_list:
